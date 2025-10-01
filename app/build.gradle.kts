@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "edu.ucne.jugadorestictactoe"
+    namespace = "edu.ucne.erick_estrada_ap2_p1"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "edu.ucne.jugadorestictactoe"
+        applicationId = "edu.ucne.erick_estrada_ap2_p1"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
