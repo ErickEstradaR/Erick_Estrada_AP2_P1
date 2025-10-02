@@ -43,7 +43,7 @@ fun HuacalScreen(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(IdEntrada) {
         IdEntrada?.takeIf { it > 0 }?.let {
             viewModel.findHuacal(it)
         }
