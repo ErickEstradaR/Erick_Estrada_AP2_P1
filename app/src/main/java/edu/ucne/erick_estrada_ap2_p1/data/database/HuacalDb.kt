@@ -9,7 +9,7 @@ import edu.ucne.erick_estrada_ap2_p1.data.huacal.HuacalEntity
     entities = [
         HuacalEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 
