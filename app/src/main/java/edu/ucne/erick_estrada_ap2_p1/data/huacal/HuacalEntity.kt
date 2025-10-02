@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class HuacalEntity(
     @PrimaryKey
     val IdEntrada: Int? = null,
-    val Fecha : String = "",
+    val Fecha : String? = "",
     val NombreCliente: String = "",
     val Cantidad: Int = 0,
     val Precio: Float
