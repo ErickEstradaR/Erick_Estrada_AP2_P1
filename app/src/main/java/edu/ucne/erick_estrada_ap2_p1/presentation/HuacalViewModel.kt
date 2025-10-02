@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 
@@ -63,10 +65,11 @@ class HuacalViewModel @Inject constructor(
                     if (huacal != null) {
                         _uiState.update {
                             it.copy(
-                                IdEntrada = _uiState.value.IdEntrada,
-                                NombreCliente = _uiState.value.NombreCliente,
-                                Precio = _uiState.value.Precio,
-                                Cantidad = _uiState.value.Cantidad
+                                IdEntrada = huacal.idEntrada,
+                                NombreCliente = huacal.nombreCliente,
+                                Precio = huacal.precio,
+                                Cantidad = huacal.cantidad,
+                                Fecha = huacal.fecha.toString()
                             )
                         }
                     }
@@ -78,13 +81,20 @@ class HuacalViewModel @Inject constructor(
     }
 
 
+
     suspend fun saveHuacal(): Boolean {
         val currentState = _uiState.value
+        val fecha = if (currentState.IdEntrada == null || currentState.IdEntrada == 0) {
+            LocalDate.now().format(DateTimeFormatter.ISO_DATE)}
+        else {
+            currentState.Fecha
+        }
         val huacal = Huacal(
             idEntrada = _uiState.value.IdEntrada,
             nombreCliente = _uiState.value.NombreCliente,
             precio = _uiState.value.Precio,
-            cantidad = _uiState.value.Cantidad
+            cantidad = _uiState.value.Cantidad,
+            fecha =  fecha
         )
         return try {
             val result = useCases.guardarHuacal(huacal)
