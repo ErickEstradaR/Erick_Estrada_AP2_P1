@@ -4,18 +4,18 @@ import edu.ucne.erick_estrada_ap2_p1.data.huacal.HuacalEntity
 import edu.ucne.erick_estrada_ap2_p1.domain.model.Huacal
 
 fun HuacalEntity.toDomain() = Huacal(
-    IdEntrada = IdEntrada,
-    Fecha = Fecha,
-    NombreCliente = NombreCliente,
-    Cantidad = Cantidad,
-    Precio = Precio
+    idEntrada = IdEntrada,
+    fecha = Fecha,
+    nombreCliente = NombreCliente,
+    cantidad = Cantidad,
+    precio = Precio
 )
 
 fun Huacal.toEntity() = HuacalEntity(
-    IdEntrada = IdEntrada,
-    Fecha = Fecha,
-    NombreCliente = NombreCliente,
-    Cantidad = Cantidad,
-    Precio = Precio
+    IdEntrada = idEntrada,
+    Fecha = fecha,
+    NombreCliente = nombreCliente,
+    Cantidad = cantidad,
+    Precio = precio
 )
 

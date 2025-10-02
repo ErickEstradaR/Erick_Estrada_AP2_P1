@@ -8,7 +8,7 @@ class validarHuacalUseCase(
 ) {
     suspend operator fun invoke(huacal: Huacal): Result<Unit> {
 
-        if (huacal.NombreCliente.isBlank() || huacal.Cantidad <= 0 || huacal.Precio <= 0) {
+        if (huacal.nombreCliente.isBlank() || huacal.cantidad <= 0 || huacal.precio <= 0) {
             return Result.failure(Exception("Nombre esta vacio"))
         }
 

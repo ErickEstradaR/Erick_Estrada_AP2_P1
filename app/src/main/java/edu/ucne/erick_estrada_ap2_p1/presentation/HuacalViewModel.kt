@@ -81,10 +81,10 @@ class HuacalViewModel @Inject constructor(
     suspend fun saveHuacal(): Boolean {
         val currentState = _uiState.value
         val huacal = Huacal(
-            IdEntrada = _uiState.value.IdEntrada,
-            NombreCliente = _uiState.value.NombreCliente,
-            Precio = _uiState.value.Precio,
-            Cantidad = _uiState.value.Cantidad
+            idEntrada = _uiState.value.IdEntrada,
+            nombreCliente = _uiState.value.NombreCliente,
+            precio = _uiState.value.Precio,
+            cantidad = _uiState.value.Cantidad
         )
         return try {
             val result = useCases.guardarHuacal(huacal)
@@ -110,10 +110,10 @@ class HuacalViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val huacal = Huacal(
-                    IdEntrada = _uiState.value.IdEntrada,
-                    NombreCliente = _uiState.value.NombreCliente,
-                    Precio = _uiState.value.Precio,
-                    Cantidad = _uiState.value.Cantidad
+                    idEntrada = _uiState.value.IdEntrada,
+                    nombreCliente = _uiState.value.NombreCliente,
+                    precio = _uiState.value.Precio,
+                    cantidad = _uiState.value.Cantidad
                 )
                 useCases.eliminarHuacal(huacal)
                 getHuacales()

@@ -13,7 +13,7 @@ class guardarHuacalUseCase (
         val validacion = validarHuacal(huacal)
         if (validacion.isFailure) return Result.failure(validacion.exceptionOrNull()!!)
 
-        huacal.copy(Fecha = LocalDateTime.now().toString())
+        huacal.copy(fecha = LocalDateTime.now().toString())
 
         val result = repository.save(huacal)
         return Result.success(result)

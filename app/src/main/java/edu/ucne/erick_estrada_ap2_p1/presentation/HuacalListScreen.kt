@@ -54,7 +54,7 @@ fun HuacalListScreen(
     }
 
     val onDelete: (Huacal) -> Unit = { huacal ->
-        viewModel.onEvent(HuacalEvent.huacalChange(huacal.IdEntrada ?: 0))
+        viewModel.onEvent(HuacalEvent.huacalChange(huacal.idEntrada ?: 0))
         viewModel.onEvent(HuacalEvent.delete)
     }
 
@@ -74,7 +74,7 @@ fun HuacalListScreen(
             items(state.huacales) { huacal ->
                 HuacalCardItem(
                     huacal = huacal,
-                    goToHuacal = { goToHuacales(huacal.IdEntrada ?: 0) },
+                    goToHuacal = { goToHuacales(huacal.idEntrada ?: 0) },
                     deleteHuacal = { onDelete(huacal) }
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -105,27 +105,27 @@ fun HuacalCardItem(
                 modifier = Modifier.weight(1f)
             ) {
                 Text(
-                    text = "Id: ${huacal.IdEntrada}",
+                    text = "Id: ${huacal.idEntrada}",
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = "Nombre: ${huacal.NombreCliente}",
+                    text = "Nombre: ${huacal.nombreCliente}",
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = "Cantidad: ${huacal.Cantidad}",
+                    text = "Cantidad: ${huacal.cantidad}",
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = "Precio: ${huacal.Precio}",
+                    text = "Precio: ${huacal.precio}",
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = "Fecha: ${huacal.Fecha}",
+                    text = "Fecha: ${huacal.fecha}",
                     fontWeight = FontWeight.SemiBold
                 )
             }
