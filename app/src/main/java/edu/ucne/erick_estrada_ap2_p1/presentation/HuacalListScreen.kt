@@ -110,7 +110,7 @@ fun HuacalCardItem(
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = "Nombre: ${huacal.nombreCliente}",
+                    text = "Cliente: ${huacal.nombreCliente}",
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(Modifier.height(12.dp))
@@ -120,12 +120,17 @@ fun HuacalCardItem(
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = "Precio: ${huacal.precio}",
+                    text = "Precio: $${huacal.precio}",
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
                     text = "Fecha: ${huacal.fecha}",
+                    fontWeight = FontWeight.SemiBold
+                )
+                Spacer(Modifier.height(12.dp))
+                Text(
+                    text = "Importe: $${huacal.precio * huacal.cantidad}",
                     fontWeight = FontWeight.SemiBold
                 )
             }

@@ -9,16 +9,13 @@ class guardarHuacalUseCase(
     private val validarHuacal: validarHuacalUseCase
 ) {
     suspend operator fun invoke(huacal: Huacal): Result<Boolean> {
+
         val validacion = validarHuacal(huacal)
         if (validacion.isFailure) return Result.failure(validacion.exceptionOrNull()!!)
 
-        val huacalConFecha = if (huacal.fecha == null) {
-            huacal.copy(fecha = LocalDateTime.now().toString())
-        } else {
-            huacal
-        }
+        huacal.copy(fecha = LocalDateTime.now().toString())
 
-        val result = repository.save(huacalConFecha)
+        val result = repository.save(huacal)
         return Result.success(result)
     }
 }
